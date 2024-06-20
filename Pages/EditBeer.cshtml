@@ -1,0 +1,120 @@
+﻿@page
+@model WebApplication1.Pages.EditBeerModel;
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редактировать пиво</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px); /* Adjusting width for padding */
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+            input[type="text"]:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+            }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        .validation-message {
+            color: #d9534f;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Редактировать пиво</h1>
+    <form method="post">
+        <table>
+            <tr>
+                <td>ID:</td>
+                <td>@Model?.Beer?.Id</td>
+            </tr>
+            <tr>
+                <td><label for="Color">Цвет</label></td>
+                <td>
+                    <input asp-for="Beer.Color" type="text" id="Color" name="Color">
+                    <span asp-validation-for="Beer.Color" class="validation-message"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Structure">Процент алкоголя</label></td>
+                <td>
+                    <input asp-for="Beer.Structure" type="text" id="Structure" name="Structure">
+                    <span asp-validation-for="Beer.Structure" class="validation-message"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Volume">Объём</label></td>
+                <td>
+                    <input asp-for="Beer.Volume" type="text" id="Volume" name="Volume">
+                    <span asp-validation-for="Beer.Volume" class="validation-message"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Сохранить</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

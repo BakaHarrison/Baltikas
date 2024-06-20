@@ -1,0 +1,67 @@
+﻿@page
+@model WebApplication1.Model.AuthApp.RegisterModel
+@{
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 40px;
+        }
+
+        .container {
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-create {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Регистрация</h2>
+
+        <form method="post" asp-controller="Account" asp-action="Register" asp-anti-forgery="true" class="mx-auto">
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Введите Email</label>
+                <input type="text" asp-for="Email" class="form-control" name="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Введите пароль</label>
+                <input type="password" asp-for="Password" class="form-control" name="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label">Повторите пароль</label>
+                <input type="password" asp-for="ConfirmPassword" class="form-control" name="ConfirmPassword" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Регистрация" class="btn btn-primary btn-create" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
